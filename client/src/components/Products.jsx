@@ -1,6 +1,8 @@
 import React from 'react'
-
+import {useDispatch} from 'react-redux'
+import {addItem,removeItem} from '../redux/slice/cartSlice'
 export const Products = () => {
+  const dispatch = useDispatch()
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100">
       
@@ -23,14 +25,14 @@ export const Products = () => {
         <div className="flex gap-3">
           <button
     
-            className="flex-1 bg-black text-white py-2 rounded-lg hover:opacity-80 transition"
+            className="flex-1 bg-black text-white py-2 rounded-lg hover:opacity-80 transition" onClick={()=>dispatch(addItem(1))}
           >
             Add to Cart
           </button>
 
           <button
             
-            className="flex-1 border border-black py-2 rounded-lg hover:bg-gray-100 transition"
+            className="flex-1 border border-black py-2 rounded-lg hover:bg-gray-100 transition" onClick={()=>{dispatch(removeItem(1))}}
           >
             Remove
           </button>
