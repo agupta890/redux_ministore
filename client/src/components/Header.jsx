@@ -16,9 +16,9 @@ export function Header() {
           <Link to="/products">
             <p className="hover:text-black transition">Product</p>
           </Link>
-          <Link to="/cart">
+          
             <AddToCart />
-          </Link>
+         
         </nav>
       </div>
     </header>
