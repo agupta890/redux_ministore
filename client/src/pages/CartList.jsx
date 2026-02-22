@@ -1,13 +1,22 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { removeItem } from '../redux/slice/cartSlice'
+import { removeItem,clearCart } from '../redux/slice/cartSlice'
+import {useNavigate} from 'react-router-dom'
 
 export const CartList = () => {
+  const navigate = useNavigate()
   const cartItem = useSelector((state) => state.cart.items)
   const dispatch = useDispatch()
 
   const totalPrice = cartItem.reduce((sum, item) => sum + item.price, 0)
+// place order
+const handleOrder =()=>{
+  localStorage.clear()
+  alert("Oder placed")
+  dispatch(clearCart())
+  navigate('/')
 
+}
   return (
     <div className="min-h-screen bg-gray-100 p-6">
 
@@ -70,8 +79,8 @@ export const CartList = () => {
               </span>
             </div>
 
-            <button className="w-full bg-black text-white py-3 rounded-lg hover:bg-gray-800 transition">
-              Proceed to Checkout
+            <button className="w-full bg-black text-white py-3 rounded-lg hover:bg-gray-800 transition" onClick={handleOrder}>
+              Place Order
             </button>
           </div>
 
