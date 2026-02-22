@@ -35,7 +35,7 @@ export const Products = () => {
             <img
               src={item.thumbnail}
               alt="Product"
-              className="w-full h-48 object-cover rounded-xl mb-4"
+              className="w-full h-48 object-contain rounded-xl mb-4"
             />
 
             {/* Product Info */}
